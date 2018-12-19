@@ -45,7 +45,8 @@ if __name__ == "__main__":
 
     print_salary_predictions(np.reshape(salary_X_pred.values, (1,-1))[0], salary_Y_pred)
 
-    plt.scatter(salary_X_train, salary_Y_train, color='black')
-    plt.plot(salary_X_pred, salary_Y_pred, color='blue', linewidth=3)
+    plt.scatter(salary_X_train, salary_Y_train, color='black', label='Training data')
+    plt.plot(salary_X_pred, salary_Y_pred, color='blue', linewidth=3, label='Predicted salary')
 
+    plt.legend()
     plt.show()
