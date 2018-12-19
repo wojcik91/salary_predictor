@@ -15,3 +15,6 @@ def sort_input_data(df):
 if __name__ == "__main__":
     salary_df = pd.read_csv('salary.csv', na_values=['', ' '])
     (salary_data, salary_pred) = sort_input_data(salary_df)
+
+    salary_X_train = pd.DataFrame(np.reshape(salary_data['workedYears'].values, (-1,1)))
+    salary_X_pred = pd.DataFrame(np.reshape(salary_pred['workedYears'].values, (-1,1)))
