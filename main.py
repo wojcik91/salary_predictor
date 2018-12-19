@@ -4,7 +4,8 @@ from sklearn import linear_model
 import numpy as np
 
 
-def sort_input_data(df):
+def split_input_data(df):
+    '''Split the data into a training dataset and values to be used for predictions'''
     data = pd.DataFrame()
     pred = pd.DataFrame()
     for index, row in df.iterrows():
@@ -17,6 +18,7 @@ def sort_input_data(df):
 
 
 def print_salary_predictions(years, salary):
+    '''Print predicted salaries to the console'''
     print('##### PREDICTED SALARY #####')
     print('workedYears\tsalaryBrutto')
     for prediction in zip(years, salary):
