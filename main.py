@@ -5,12 +5,12 @@ def sort_input_data(df):
     pred = pd.DataFrame()
     for index, row in df.iterrows():
         if pd.isnull(row[1]):
-            pred.append(row)
+            pred = pred.append(row)
         else:
-            data.append(row)
+            data = data.append(row)
 
     return (data, pred)
-        
+
 
 if __name__ == "__main__":
     salary_df = pd.read_csv('salary.csv', na_values=['', ' '])
