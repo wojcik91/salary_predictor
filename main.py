@@ -14,5 +14,4 @@ def sort_input_data(df):
 
 if __name__ == "__main__":
     salary_df = pd.read_csv('salary.csv', na_values=['', ' '])
-    print(salary_df)
     (salary_data, salary_pred) = sort_input_data(salary_df)
