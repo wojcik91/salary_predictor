@@ -1,4 +1,5 @@
 import pandas as pd
+from sklearn import linear_model
 import numpy as np
 
 
@@ -22,3 +23,7 @@ if __name__ == "__main__":
     salary_X_pred = pd.DataFrame(np.reshape(salary_pred['workedYears'].values, (-1,1)))
 
     salary_Y_train = salary_data['salaryBrutto']
+
+    regr = linear_model.LinearRegression()
+
+    regr.fit(salary_X_train, salary_Y_train)
