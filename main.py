@@ -1,4 +1,6 @@
 import pandas as pd
+import numpy as np
+
 
 def sort_input_data(df):
     data = pd.DataFrame()
