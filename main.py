@@ -29,15 +29,18 @@ if __name__ == "__main__":
     salary_df = pd.read_csv('salary.csv', na_values=['', ' '])
     (salary_data, salary_pred) = split_input_data(salary_df)
 
+    # extract input values
     salary_X_train = pd.DataFrame(np.reshape(salary_data['workedYears'].values, (-1,1)))
     salary_X_pred = pd.DataFrame(np.reshape(salary_pred['workedYears'].values, (-1,1)))
 
+    # extract target values
     salary_Y_train = salary_data['salaryBrutto']
 
+    # train the model
     regr = linear_model.LinearRegression()
-
     regr.fit(salary_X_train, salary_Y_train)
 
+    # predict salaries
     salary_Y_pred = regr.predict(salary_X_pred)
 
     print_salary_predictions(np.reshape(salary_X_pred.values, (1,-1))[0], salary_Y_pred)
