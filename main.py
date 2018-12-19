@@ -1,8 +1,8 @@
 import pandas as pd
 
 def sort_input_data(df):
-    data = []
-    pred = []
+    data = pd.DataFrame()
+    pred = pd.DataFrame()
     for index, row in df.iterrows():
         if pd.isnull(row[1]):
             pred.append(row)
