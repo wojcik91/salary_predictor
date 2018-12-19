@@ -27,3 +27,5 @@ if __name__ == "__main__":
     regr = linear_model.LinearRegression()
 
     regr.fit(salary_X_train, salary_Y_train)
+
+    salary_Y_pred = regr.predict(salary_X_pred)
