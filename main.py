@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn import linear_model
 import numpy as np
 
@@ -29,3 +30,11 @@ if __name__ == "__main__":
     regr.fit(salary_X_train, salary_Y_train)
 
     salary_Y_pred = regr.predict(salary_X_pred)
+
+    plt.scatter(salary_X_train, salary_Y_train, color='black')
+    plt.plot(salary_X_pred, salary_Y_pred, color='blue', linewidth=3)
+
+    plt.xticks(())
+    plt.yticks(())
+
+    plt.show()
