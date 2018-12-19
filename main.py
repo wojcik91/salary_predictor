@@ -31,6 +31,7 @@ def print_salary_predictions(years, salary):
 
 
 if __name__ == "__main__":
+    # load data from CSV file
     salary_df = pd.read_csv('salary.csv', na_values=['', ' '])
 
     # extract training data and values for predictions
