@@ -50,4 +50,6 @@ if __name__ == "__main__":
     plt.plot(salary_X_pred, salary_Y_pred, color='blue', linewidth=3, label='Predicted salary')
 
     plt.legend()
+    plt.xlabel('Years worked')
+    plt.ylabel('Salary brutto')
     plt.show()
