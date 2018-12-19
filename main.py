@@ -6,15 +6,20 @@ import numpy as np
 
 def split_input_data(df):
     '''Split the data into a training dataset and values to be used for predictions'''
-    data = pd.DataFrame()
+    train = pd.DataFrame()
     pred = pd.DataFrame()
     for index, row in df.iterrows():
         if pd.isnull(row[1]):
             pred = pred.append(row)
         else:
-            data = data.append(row)
+            train = train.append(row)
 
-    return (data, pred)
+    train_X = pd.DataFrame(np.reshape(train['workedYears'].values, (-1,1)))
+    train_Y = train['salaryBrutto']
+
+    pred_X = pd.DataFrame(np.reshape(pred['workedYears'].values, (-1,1)))
+
+    return (train_X, train_Y, pred_X)
 
 
 def print_salary_predictions(years, salary):
@@ -27,14 +32,9 @@ def print_salary_predictions(years, salary):
 
 if __name__ == "__main__":
     salary_df = pd.read_csv('salary.csv', na_values=['', ' '])
-    (salary_data, salary_pred) = split_input_data(salary_df)
 
-    # extract input values
-    salary_X_train = pd.DataFrame(np.reshape(salary_data['workedYears'].values, (-1,1)))
-    salary_X_pred = pd.DataFrame(np.reshape(salary_pred['workedYears'].values, (-1,1)))
-
-    # extract target values
-    salary_Y_train = salary_data['salaryBrutto']
+    # extract training data and values for predictions
+    (salary_X_train, salary_Y_train, salary_X_pred) = split_input_data(salary_df)
 
     # train the model
     regr = linear_model.LinearRegression()
