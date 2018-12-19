@@ -43,7 +43,4 @@ if __name__ == "__main__":
     plt.scatter(salary_X_train, salary_Y_train, color='black')
     plt.plot(salary_X_pred, salary_Y_pred, color='blue', linewidth=3)
 
-    plt.xticks(())
-    plt.yticks(())
-
     plt.show()
