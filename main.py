@@ -18,3 +18,5 @@ if __name__ == "__main__":
 
     salary_X_train = pd.DataFrame(np.reshape(salary_data['workedYears'].values, (-1,1)))
     salary_X_pred = pd.DataFrame(np.reshape(salary_pred['workedYears'].values, (-1,1)))
+
+    salary_Y_train = salary_data['salaryBrutto']
